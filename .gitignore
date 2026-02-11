@@ -39,3 +39,4 @@ charts/
 # Logs
 *.log
 logs/
+.env
