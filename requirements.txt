@@ -1,0 +1,18 @@
+# Core dependencies
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+
+# BigQuery
+google-cloud-bigquery>=3.10.0
+db-dtypes>=1.1.0
+
+# LLM providers (optional - uncomment as needed)
+# anthropic>=0.18.0
+# openai>=1.10.0
+
+# Slack integration (optional)
+# slack-sdk>=3.20.0
+
+# Jupyter
+ipykernel>=6.22.0
