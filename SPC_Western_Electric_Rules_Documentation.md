@@ -29,6 +29,7 @@ An **XmR chart** consists of two components:
 The Western Electric Rules are a set of decision rules for detecting unusual patterns in control charts. Our system uses **5 primary rules** to identify when metrics are showing non-random behavior.
 
 ### Rule 1: Beyond 3σ (Critical)
+
 **🚨 Severity: Critical**
 
 **What it detects:** A single point falls outside the 3σ control limits (UCL/LCL)
@@ -38,6 +39,7 @@ The Western Electric Rules are a set of decision rules for detecting unusual pat
 **Business explanation:** Something exceptional happened - either a major success, a significant problem, or potentially a data quality issue
 
 **When to investigate:**
+
 - Check if there was a known event (product launch, outage, campaign)
 - Verify data quality and measurement accuracy
 - If legitimate, determine if this is a one-time event or new pattern
@@ -47,6 +49,7 @@ The Western Electric Rules are a set of decision rules for detecting unusual pat
 ---
 
 ### Rule 2: 2 of 3 Beyond 2σ (High)
+
 **⚠️ Severity: High**
 
 **What it detects:** 2 out of 3 consecutive points fall beyond 2σ on the same side of the mean
@@ -56,6 +59,7 @@ The Western Electric Rules are a set of decision rules for detecting unusual pat
 **Business explanation:** The process is showing early signs of a shift or unusual behavior
 
 **When to investigate:**
+
 - Look for recent changes in the business (pricing, features, competition)
 - Check if there's a developing trend
 - Monitor closely over the next few data points
@@ -65,6 +69,7 @@ The Western Electric Rules are a set of decision rules for detecting unusual pat
 ---
 
 ### Rule 3: 4 of 5 Beyond 1σ (Medium)
+
 **⚠️ Severity: Medium**
 
 **What it detects:** 4 out of 5 consecutive points fall beyond 1σ on the same side of the mean
@@ -74,6 +79,7 @@ The Western Electric Rules are a set of decision rules for detecting unusual pat
 **Business explanation:** The process mean may have shifted slightly, or there's sustained pressure in one direction
 
 **When to investigate:**
+
 - Review for gradual changes in business conditions
 - Check for seasonal patterns or calendar effects
 - Consider if this represents a new "normal" level
@@ -83,6 +89,7 @@ The Western Electric Rules are a set of decision rules for detecting unusual pat
 ---
 
 ### Rule 4: 8 Consecutive Same Side (High)
+
 **⚠️ Severity: High**
 
 **What it detects:** 8 or more consecutive points fall on the same side of the center line
@@ -92,6 +99,7 @@ The Western Electric Rules are a set of decision rules for detecting unusual pat
 **Business explanation:** Your metric's baseline has shifted. This could be positive (sustained growth) or negative (sustained decline)
 
 **When to investigate:**
+
 - Identify what changed around the time the shift began
 - Determine if this is temporary or permanent
 - Consider updating control limits if the new level is sustainable
@@ -101,6 +109,7 @@ The Western Electric Rules are a set of decision rules for detecting unusual pat
 ---
 
 ### Rule 5: 6 Consecutive Trending (Medium)
+
 **⚠️ Severity: Medium**
 
 **What it detects:** 6 consecutive points trending in the same direction (either all increasing or all decreasing)
@@ -110,6 +119,7 @@ The Western Electric Rules are a set of decision rules for detecting unusual pat
 **Business explanation:** There's momentum in one direction that may indicate gradual process change, growth, or decline
 
 **When to investigate:**
+
 - Determine if the trend is expected or concerning
 - Project where the trend is heading
 - Decide if intervention is needed to maintain or reverse the trend
@@ -119,6 +129,7 @@ The Western Electric Rules are a set of decision rules for detecting unusual pat
 ---
 
 ### Moving Range (MR) Violations (High)
+
 **⚠️ Severity: High**
 
 **What it detects:** The Moving Range (difference between consecutive values) exceeds its Upper Control Limit
@@ -128,6 +139,7 @@ The Western Electric Rules are a set of decision rules for detecting unusual pat
 **Business explanation:** Something caused a sudden jump or drop in your metric
 
 **When to investigate:**
+
 - Check for data quality issues (missing data, double-counting, etc.)
 - Look for known events causing volatility
 - If legitimate, understand what drove the sudden change
@@ -139,20 +151,25 @@ The Western Electric Rules are a set of decision rules for detecting unusual pat
 ## How to Use These Rules
 
 ### 1. **Prioritize by Severity**
+
 - **Critical (Rule 1, MR Violations):** Investigate immediately
 - **High (Rule 2, Rule 4):** Review within 24 hours
 - **Medium (Rule 3, Rule 5):** Monitor and investigate if pattern continues
 
 ### 2. **Look for Multiple Rules Triggered**
+
 When multiple rules fire on the same data points, it strengthens the signal that something unusual is happening.
 
 ### 3. **Context Matters**
+
 Always interpret signals in business context:
+
 - Is this expected (product launch, holiday season)?
 - Is this concerning (unexpected churn spike)?
 - Is this data quality (missing data, system error)?
 
 ### 4. **Stable vs. Special Cause**
+
 - **No rules triggered:** Your metric shows normal, random variation (common cause)
 - **Rules triggered:** Something unusual is happening (special cause) that needs investigation
 
@@ -187,6 +204,7 @@ Mean: 38.5 | Limits: [15.2, 61.8]
 ```
 
 **What this tells you:**
+
 1. There was a spike in churn on Feb 8 (Rule 1) that needs immediate investigation
 2. Leading up to that spike, churn was consistently above average for 8 days (Rule 4)
 3. The current churn rate (45) is elevated but within control limits
@@ -197,12 +215,14 @@ Mean: 38.5 | Limits: [15.2, 61.8]
 ## Best Practices
 
 ### ✅ Do:
+
 - Investigate critical signals promptly
 - Look for business context behind signals
 - Update stakeholders when patterns are found
 - Use SPC to guide data-driven decisions
 
 ### ❌ Don't:
+
 - React to every small fluctuation (that's common cause variation)
 - Ignore multiple consecutive signals
 - Adjust control limits without understanding why the process changed
@@ -218,5 +238,5 @@ Mean: 38.5 | Limits: [15.2, 61.8]
 
 ---
 
-*Last updated: February 11, 2026*
-*Generated by Soundtrack Analytics SPC System*
+_Last updated: February 11, 2026_
+_Generated by Soundtrack Analytics SPC System_
